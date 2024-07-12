@@ -1,0 +1,15 @@
+npm init -y
+npm i -D typescript mocha chai@4.4.1 @types/mocha @types/chai ts-node 
+tsc --init
+  "scripts": {
+    "test": "mocha --require ts-node/register test/*.spec.ts"
+  },
+npm run test
+
+add test coverage
+npm i -D nyc mochawesome
+
+  "scripts": {
+    "test": "mocha --require ts-node/register test/*.spec.ts",
+    "test:nyc": "nyc mocha --require ts-node/register test/*.spec.ts --reporter mochawesome"
+  },
