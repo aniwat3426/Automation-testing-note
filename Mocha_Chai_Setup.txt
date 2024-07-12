@@ -1,0 +1,56 @@
+Mocha JS - Unit Testing framework
+- intro
+- Setup
+- Spy
+- Mock
+- Stub
+- Promise
+- xhr
+- Hooks
+- Coverage
+
+$ npm i -D mocha
+Create folder "src"
+Create folder "specs"
+
+Create Source file
+//--------------------
+class MyClass {
+    constructor() {
+        console.log('constructor called');
+    }
+    add(arg1, arg2) {
+        var result;
+        result = arg1 + arg2;
+        return result;
+    }
+}
+module.exports = MyClass;
+//-------
+create spec file
+
+//-------------
+const MyClass = require("../src/MyClass.js")
+var myObj = new MyClass();
+var chai = require("chai")
+var expect = chai.expect;
+
+describe('Test Suit for MyClass', () => {
+    it('Test the add method', () => {
+        expect(myObjmyObj.add(1, 2)).to.be.equal(3)
+    });
+});
+
+//--------
+Add "scripts" in package.json
+
+  "scripts": {
+    "test": "mocha './specs/*.spec.js'"
+  },
+  
+  Run mocha with command
+  $ npm run mocha
+  
+  Add report to mocha framework
+  $ npm i -D mochaawesome
+  $ npx mocha spec/MyClass.spec.js --reporter mochawesome
